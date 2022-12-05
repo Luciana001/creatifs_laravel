@@ -1,5 +1,5 @@
 
-@extends('templates.partials._main')
+@extends('templates.index')
 
 @section('content')
     <!-- Project One -->
