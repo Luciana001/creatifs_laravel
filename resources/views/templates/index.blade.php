@@ -9,17 +9,18 @@
 
 <body>
 
-    <!-- Navigation -->
     @include('templates.partials._nav')
 
-    <!-- Page Content -->
-    @include('templates.partials._main')
-    <!-- /.container -->
-
-    <!-- Footer -->
+    <div class="container">
+        <div class="row">
+            @include('templates.partials._main')
+            @include('templates.partials._sidebar')
+            
+        </div>
+    </div>
+    
     @include('templates.partials._footer')
 
-    <!-- Bootstrap core JavaScript -->
     @include('templates.partials._scripts')
 
 </body>

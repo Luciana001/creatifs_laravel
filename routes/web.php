@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [
-    \App\Http\Controllers\projetsController::class, 'index'
-])->name('projets.index');
+Route::get('/', [\App\Http\Controllers\ProjetsController::class, 'index'])->name('home');
+Route::get('/projets', [\App\Http\Controllers\ProjetsController::class, 'index'])->name('projets.index');
+
+Route::get('/projets/{projet}/{slug}.html', [\App\Http\Controllers\ProjetsController::class, 'show'])
+    ->where('id', '[1-9][0-9]*')
+    ->name('projets.show');
+
+Route::resource('creatifs', \App\Http\Controllers\CreatifsController::class);
 

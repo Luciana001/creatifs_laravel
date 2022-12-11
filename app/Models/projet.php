@@ -4,8 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class projet extends Model
+class Projet extends Model
 {
     use HasFactory;
+
+    public function createur()
+    {
+        return $this->belongsTo(\App\Models\Creatif::class, 'creatif');
+    }
+
+    public function tags()
+    {
+        return $this->BelongsToMany(\App\Models\Tag::class, 'projets_has_tags', "projet", 'tag');# code...
+    }
 }
