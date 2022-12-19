@@ -10,6 +10,8 @@ class Projet extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['titre', 'texte', 'image', 'creatif'];
+
     public function createur()
     {
         return $this->belongsTo(\App\Models\Creatif::class, 'creatif');
@@ -19,4 +21,6 @@ class Projet extends Model
     {
         return $this->BelongsToMany(\App\Models\Tag::class, 'projets_has_tags', "projet", 'tag');# code...
     }
+
+   
 }

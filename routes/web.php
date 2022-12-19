@@ -22,3 +22,19 @@ Route::get('/projets/{projet}/{slug}.html', [\App\Http\Controllers\ProjetsContro
 
 Route::resource('creatifs', \App\Http\Controllers\CreatifsController::class);
 
+Route::resource('projets', \App\Http\Controllers\ProjetsController::class)->except('show');
+
+
+
+
+
+
+Route::get('/abonnes/store', [\App\Http\Controllers\AbonnesController::class, 'store'])
+    ->name('abonnes.store');
+
+    // Route::delete('/delete/{projet}/{slug}.html', [\App\Http\Controllers\ProjetsController::class, 'destroy'])
+    // ->where('id', '[1-9][0-9]*')
+    // ->name('projets.index');
+
+// Route::get('/projets/create', [\App\Http\Controllers\ProjetsController::class, 'create'])
+//     ->name('projets.create');

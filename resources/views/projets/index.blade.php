@@ -13,6 +13,7 @@
 @section('content')
     <!-- Title -->
     <h1 class="mt-4">Les projets <small>Design capill'Hair</small></h1>
+    <a href="{{ route('projets.create') }}" class="btn btn-primary">Create new project</a>
 
     <hr>
     @foreach ($projets as $projet)
@@ -24,7 +25,7 @@
                         'projet' => $projet->id,
                         'slug' => \Illuminate\Support\Str::slug($projet->titre),
                     ]) }}">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('assets/images/' . $projet->image) }}"
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('images/'. $projet->image) }}"
                         alt="{{ $projet->titre }}">
                 </a>
             </div>
@@ -33,7 +34,7 @@
                 <p class="lead">
                     par
                     <a href="artiste_details.html">{{ $projet->createur->pseudo }}</a>
-                    le {{ \Carbon\Carbon::parse($projet->dateCreation)->format('d-m-Y') }}
+                    le {{ \Carbon\Carbon::parse($projet->created_at)->format('d-m-Y') }}
                 </p>
                 <p>{{ $projet->texte }}</p>
                 <a class="btn btn-primary"

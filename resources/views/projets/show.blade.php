@@ -13,10 +13,18 @@
     
         <!-- Title -->
         <h1 class="mt-4">{{ $projet->titre }}</h1>
+        <div>
+            <a href="" class="btn btn-primary">Edit</a>
+            <a href="" class="btn btn-secondary">Delete</a>
+                {{-- {{ route('projets.index', [
+                        'projet' => $projet->id,
+                        'slug' => \Illuminate\Support\Str::slug($projet->titre),
+                    ]) }} --}}
+        </div>
         <p class="lead">
             par
             <a href="artiste_details.html">{{ $projet->createur->pseudo }}</a> le
-            {{ \Carbon\Carbon::parse($projet->dateCreation)->format('d-m-Y') }}
+            {{ \Carbon\Carbon::parse($projet->created_at)->format('d-m-Y') }}
         </p>
     
         <hr>
@@ -28,7 +36,7 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('assets/images/' . $projet->image) }}"
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('images/' . $projet->image) }}"
                         alt="{{ $projet->titre }}">
                 </a>
             </div>
